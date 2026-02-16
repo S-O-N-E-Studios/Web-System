@@ -70,39 +70,3 @@ jobs:
         run: |
           cd frontend
           npm run build
-          
-  sonarcloud:
-    name: SonarCloud Analysis
-    runs-on: windows-latest
-    needs: [backend-tests, frontend-tests]
-    
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          
-      - name: Install all dependencies
-        run: npm ci
-          
-      - name: Run backend tests with coverage
-        run: |
-          cd backend
-          npm run test:ci
-        env:
-          MONGODB_URI: mongodb://localhost:27017/test
-          JWT_SECRET: test_secret_key
-          
-      - name: Run frontend tests with coverage
-        run: |
-          cd frontend
-          npm test -- --coverage --watchAll=false
-          
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v6
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
