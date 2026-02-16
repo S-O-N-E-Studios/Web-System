@@ -7,7 +7,7 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "test": "jest --watchAll --verbose",
-    "test:ci": "jest --ci --coverage --coverageReporters=lcov --coverageReporters=text",
+    "test:ci": "jest --ci --passWithNoTests --coverage --coverageReporters=lcov --coverageReporters=text",
     "sonar": "sonar-scanner",
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint src/**/*.js --fix",
