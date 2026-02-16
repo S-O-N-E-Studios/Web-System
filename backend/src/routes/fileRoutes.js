@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { uploadFile, downloadFile, getFile, deleteFile } = require('../controllers/fileController');
+const { getFile, deleteFile } = require('../controllers/fileController');
 // const { protect } = require('../middleware/auth');
 // const upload = require('../middleware/upload');
 
