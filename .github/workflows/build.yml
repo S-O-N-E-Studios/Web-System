@@ -23,10 +23,8 @@ jobs:
         with:
           node-version: '18'
           
-      - name: Install backend dependencies
-        run: |
-          cd backend
-          npm ci
+      - name: Install dependencies
+        run: npm ci
           
       - name: Run backend linter
         run: |
@@ -55,10 +53,8 @@ jobs:
         with:
           node-version: '18'
           
-      - name: Install frontend dependencies
-        run: |
-          cd frontend
-          npm ci
+      - name: Install dependencies
+        run: npm ci
           
       - name: Run frontend linter
         run: |
@@ -91,12 +87,7 @@ jobs:
           node-version: '18'
           
       - name: Install all dependencies
-        run: |
-          cd backend
-          npm ci
-          cd ../frontend
-          npm ci
-          cd ..
+        run: npm ci
           
       - name: Run backend tests with coverage
         run: |
